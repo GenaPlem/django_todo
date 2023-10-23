@@ -18,7 +18,7 @@ if os.path.isfile('env.py'):
     import env
 
 
-development = os.environ.get('DEVELOPMENT', False)
+development = 'DEVELOPMENT' in os.environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,7 +36,7 @@ DEBUG = development
 if development:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
